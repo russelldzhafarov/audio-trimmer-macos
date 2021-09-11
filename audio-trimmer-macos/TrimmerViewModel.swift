@@ -7,8 +7,9 @@
 
 import Cocoa
 import Combine
+import AVFoundation
 
-class TrimmerViewModel: ObservableObject {
+class TrimmerViewModel: NSObject, ObservableObject {
     
     let thumbWidth = CGFloat(12)
     let rulerHeight = CGFloat(32)
@@ -16,14 +17,98 @@ class TrimmerViewModel: ObservableObject {
     let sliderMinimumValue: Double = .zero
     let sliderMaximumValue: Double = 1.0
     
+    enum PlayerState {
+        case playing, stopped
+    }
+    
+    @Published var playerState: PlayerState = .stopped
+    
     @Published var sliderLowerValue: Double = .zero
     @Published var sliderUpperValue: Double = 1.0
     
     @Published var currentTime: TimeInterval = .zero
     @Published var duration: TimeInterval = .zero
     
+    @Published var error: Error?
+    
     var samples: [Float] = []
     
     var startTime: TimeInterval { sliderLowerValue * duration }
     var endTime: TimeInterval { sliderUpperValue * duration }
+    
+    var fileURL: URL?
+    var audioBuffer: AVAudioPCMBuffer?
+    
+    var fileFormat: AVAudioFormat?
+    var processingFormat: AVAudioFormat?
+    
+    var audioPlayer: AVAudioPlayer? {
+        didSet {
+            audioPlayer?.delegate = self
+        }
+    }
+    var timer: Timer?
+    
+    deinit {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    func seek(to time: TimeInterval) {
+        guard let audioPlayer = audioPlayer else { return }
+        
+        let wasPlaying = audioPlayer.isPlaying
+        if wasPlaying {
+            stop()
+        }
+        
+        currentTime = time.clamped(to: startTime...endTime)
+        audioPlayer.currentTime = currentTime
+        
+        if wasPlaying {
+            play()
+        }
+    }
+    
+    func play() {
+        guard let audioPlayer = audioPlayer else { return }
+        
+        audioPlayer.currentTime = currentTime
+        audioPlayer.play()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.025, repeats: true) { (_) in
+            guard audioPlayer.currentTime < self.endTime else {
+                self.stop()
+                return
+            }
+            
+            self.currentTime = audioPlayer.currentTime
+        }
+        
+        playerState = .playing
+    }
+    
+    func stop() {
+        guard let audioPlayer = audioPlayer else { return }
+        
+        audioPlayer.stop()
+        
+        timer?.invalidate()
+        timer = nil
+        
+        playerState = .stopped
+    }
+}
+
+extension TrimmerViewModel: AVAudioPlayerDelegate {
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        self.error = error
+        stop()
+    }
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        stop()
+        
+        currentTime = sliderLowerValue * duration
+        audioPlayer?.currentTime = currentTime
+    }
 }
