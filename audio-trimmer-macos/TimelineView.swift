@@ -37,7 +37,6 @@ class TimelineView: NSView, ObservableObject {
             shadingLayer.viewModel = viewModel
             lowerHandleLayer.viewModel = viewModel
             upperHandleLayer.viewModel = viewModel
-            cursorLayer.viewModel = viewModel
             rulerLayer.viewModel = viewModel
             
             updateLayerFrames()
@@ -48,7 +47,7 @@ class TimelineView: NSView, ObservableObject {
     let shadingLayer = ShadingLayer()
     let lowerHandleLayer = SliderHandleLayer()
     let upperHandleLayer = SliderHandleLayer()
-    let cursorLayer = CursorLayer()
+    let cursorLayer = CALayer()
     let rulerLayer = RulerLayer()
     
     override init(frame frameRect: NSRect) {
@@ -84,6 +83,7 @@ class TimelineView: NSView, ObservableObject {
         upperHandleLayer.contentsScale = contentsScale
         rootLayer.addSublayer(upperHandleLayer)
         
+        cursorLayer.backgroundColor = NSColor.red.cgColor
         cursorLayer.contentsScale = contentsScale
         rootLayer.addSublayer(cursorLayer)
         

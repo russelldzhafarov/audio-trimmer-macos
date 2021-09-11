@@ -12,7 +12,6 @@
 		90AB687526E524A0003A0C7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90AB687426E524A0003A0C7F /* Assets.xcassets */; };
 		90AB687826E524A0003A0C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90AB687626E524A0003A0C7F /* Main.storyboard */; };
 		90AB689026E5288D003A0C7F /* RulerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688326E5288C003A0C7F /* RulerLayer.swift */; };
-		90AB689126E5288D003A0C7F /* CursorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688426E5288D003A0C7F /* CursorLayer.swift */; };
 		90AB689226E5288D003A0C7F /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688526E5288D003A0C7F /* Double.swift */; };
 		90AB689326E5288D003A0C7F /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688626E5288D003A0C7F /* TimeInterval.swift */; };
 		90AB689426E5288D003A0C7F /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688726E5288D003A0C7F /* NSImage.swift */; };
@@ -35,7 +34,6 @@
 		90AB687926E524A0003A0C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90AB687A26E524A0003A0C7F /* audio_trimmer_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = audio_trimmer_macos.entitlements; sourceTree = "<group>"; };
 		90AB688326E5288C003A0C7F /* RulerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerLayer.swift; sourceTree = "<group>"; };
-		90AB688426E5288D003A0C7F /* CursorLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CursorLayer.swift; sourceTree = "<group>"; };
 		90AB688526E5288D003A0C7F /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		90AB688626E5288D003A0C7F /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
 		90AB688726E5288D003A0C7F /* NSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			children = (
 				90AB686E26E5249C003A0C7F /* AppDelegate.swift */,
 				90AB688826E5288D003A0C7F /* AVAudioPCMBuffer.swift */,
-				90AB688426E5288D003A0C7F /* CursorLayer.swift */,
 				90AB687226E5249C003A0C7F /* Document.swift */,
 				90AB688526E5288D003A0C7F /* Double.swift */,
 				90AB688F26E5288D003A0C7F /* NSBezierPath.swift */,
@@ -185,7 +182,6 @@
 				90AB689826E5288D003A0C7F /* TrimmerViewModel.swift in Sources */,
 				90AB689426E5288D003A0C7F /* NSImage.swift in Sources */,
 				90AB689226E5288D003A0C7F /* Double.swift in Sources */,
-				90AB689126E5288D003A0C7F /* CursorLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
