@@ -1,5 +1,5 @@
 # Audio Trimmer for macOS
 
-This app is designed to trim audio files.
+Simple audio trimmer app for macOS.
 
 ![Screenshot](./AudioTrimmer.png)
