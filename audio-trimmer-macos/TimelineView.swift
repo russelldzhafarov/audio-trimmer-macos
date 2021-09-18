@@ -31,7 +31,7 @@ class TimelineView: NSView, ObservableObject {
         }
     }
     
-    var viewModel: TrimmerViewModel? {
+    weak var viewModel: TrimmerViewModel? {
         didSet {
             waveformLayer.viewModel = viewModel
             shadingLayer.viewModel = viewModel

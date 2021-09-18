@@ -19,7 +19,7 @@ class SliderHandleLayer: CALayer {
         }
     }
     
-    var viewModel: TrimmerViewModel?
+    weak var viewModel: TrimmerViewModel?
     
     override func draw(in ctx: CGContext) {
         guard let viewModel = viewModel,

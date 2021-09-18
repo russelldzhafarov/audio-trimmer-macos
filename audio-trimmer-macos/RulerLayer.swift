@@ -16,7 +16,7 @@ class RulerLayer: CALayer {
         NSColor.white.withAlphaComponent(0.4)
     }
     
-    var viewModel: TrimmerViewModel?
+    weak var viewModel: TrimmerViewModel?
     
     let attributes: [NSAttributedString.Key: Any] = [
         .foregroundColor: RulerLayer.rulerLabelColor,
