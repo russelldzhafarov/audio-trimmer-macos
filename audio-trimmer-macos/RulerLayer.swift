@@ -7,6 +7,14 @@
 
 import Cocoa
 
+extension Double {
+    func round(nearest: Double) -> Double {
+        let n = 1/nearest
+        let numberToRound = self * n
+        return numberToRound.rounded() / n
+    }
+}
+
 class RulerLayer: CALayer {
     
     static var rulerColor: NSColor {

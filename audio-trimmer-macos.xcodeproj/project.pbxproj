@@ -12,9 +12,7 @@
 		90AB687526E524A0003A0C7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90AB687426E524A0003A0C7F /* Assets.xcassets */; };
 		90AB687826E524A0003A0C7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90AB687626E524A0003A0C7F /* Main.storyboard */; };
 		90AB689026E5288D003A0C7F /* RulerLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688326E5288C003A0C7F /* RulerLayer.swift */; };
-		90AB689226E5288D003A0C7F /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688526E5288D003A0C7F /* Double.swift */; };
 		90AB689326E5288D003A0C7F /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688626E5288D003A0C7F /* TimeInterval.swift */; };
-		90AB689426E5288D003A0C7F /* NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688726E5288D003A0C7F /* NSImage.swift */; };
 		90AB689526E5288D003A0C7F /* AVAudioPCMBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688826E5288D003A0C7F /* AVAudioPCMBuffer.swift */; };
 		90AB689626E5288D003A0C7F /* WaveformLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688926E5288D003A0C7F /* WaveformLayer.swift */; };
 		90AB689726E5288D003A0C7F /* ShadingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AB688A26E5288D003A0C7F /* ShadingLayer.swift */; };
@@ -34,9 +32,7 @@
 		90AB687926E524A0003A0C7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90AB687A26E524A0003A0C7F /* audio_trimmer_macos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = audio_trimmer_macos.entitlements; sourceTree = "<group>"; };
 		90AB688326E5288C003A0C7F /* RulerLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulerLayer.swift; sourceTree = "<group>"; };
-		90AB688526E5288D003A0C7F /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		90AB688626E5288D003A0C7F /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		90AB688726E5288D003A0C7F /* NSImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSImage.swift; sourceTree = "<group>"; };
 		90AB688826E5288D003A0C7F /* AVAudioPCMBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAudioPCMBuffer.swift; sourceTree = "<group>"; };
 		90AB688926E5288D003A0C7F /* WaveformLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaveformLayer.swift; sourceTree = "<group>"; };
 		90AB688A26E5288D003A0C7F /* ShadingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadingLayer.swift; sourceTree = "<group>"; };
@@ -78,19 +74,17 @@
 			isa = PBXGroup;
 			children = (
 				90AB686E26E5249C003A0C7F /* AppDelegate.swift */,
-				90AB688826E5288D003A0C7F /* AVAudioPCMBuffer.swift */,
 				90AB687226E5249C003A0C7F /* Document.swift */,
-				90AB688526E5288D003A0C7F /* Double.swift */,
-				90AB688F26E5288D003A0C7F /* NSBezierPath.swift */,
-				90AB688726E5288D003A0C7F /* NSImage.swift */,
+				90AB688B26E5288D003A0C7F /* TrimmerViewModel.swift */,
 				90AB688D26E5288D003A0C7F /* TrimmerViewController.swift */,
+				90AB688E26E5288D003A0C7F /* TimelineView.swift */,
 				90AB688326E5288C003A0C7F /* RulerLayer.swift */,
 				90AB688A26E5288D003A0C7F /* ShadingLayer.swift */,
 				90AB688C26E5288D003A0C7F /* SliderHandleLayer.swift */,
-				90AB688626E5288D003A0C7F /* TimeInterval.swift */,
-				90AB688E26E5288D003A0C7F /* TimelineView.swift */,
-				90AB688B26E5288D003A0C7F /* TrimmerViewModel.swift */,
 				90AB688926E5288D003A0C7F /* WaveformLayer.swift */,
+				90AB688626E5288D003A0C7F /* TimeInterval.swift */,
+				90AB688F26E5288D003A0C7F /* NSBezierPath.swift */,
+				90AB688826E5288D003A0C7F /* AVAudioPCMBuffer.swift */,
 				90AB687426E524A0003A0C7F /* Assets.xcassets */,
 				90AB687626E524A0003A0C7F /* Main.storyboard */,
 				90AB687926E524A0003A0C7F /* Info.plist */,
@@ -180,8 +174,6 @@
 				90AB689A26E5288D003A0C7F /* TrimmerViewController.swift in Sources */,
 				90AB689526E5288D003A0C7F /* AVAudioPCMBuffer.swift in Sources */,
 				90AB689826E5288D003A0C7F /* TrimmerViewModel.swift in Sources */,
-				90AB689426E5288D003A0C7F /* NSImage.swift in Sources */,
-				90AB689226E5288D003A0C7F /* Double.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

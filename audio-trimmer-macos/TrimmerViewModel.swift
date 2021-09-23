@@ -98,6 +98,40 @@ class TrimmerViewModel: NSObject, ObservableObject {
         
         playerState = .stopped
     }
+    
+    func power(at time: TimeInterval) -> Float {
+        guard duration > .zero else { return .zero }
+        
+        let sampleRate = Double(samples.count) / duration
+        
+        let index = Int(time * sampleRate)
+        
+        guard samples.indices.contains(index) else { return .zero }
+        
+        let power = samples[index]
+        
+        let avgPower = 20 * log10(power)
+        
+        return scaledPower(power: avgPower)
+    }
+    
+    func scaledPower(power: Float) -> Float {
+        guard power.isFinite else {
+            return .zero
+        }
+        
+        let minDb: Float = -80
+        
+        if power < minDb {
+            return .zero
+            
+        } else if power >= 1.0 {
+            return 1.0
+            
+        } else {
+            return (abs(minDb) - abs(power)) / abs(minDb)
+        }
+    }
 }
 
 extension TrimmerViewModel: AVAudioPlayerDelegate {

@@ -13,14 +13,15 @@ class Document: NSDocument {
     let viewModel = TrimmerViewModel()
     
     override var isDocumentEdited: Bool { false }
+    // This disables auto save.
+    override class var autosavesInPlace: Bool { false }
+    // This enables asynchronous reading.
+    override class func canConcurrentlyReadDocuments(ofType typeName: String) -> Bool { true }
     
     override var displayName: String! {
         set {}
         get { viewModel.fileURL?.lastPathComponent ?? "" }
     }
-    
-    // This disables auto save.
-    override class var autosavesInPlace: Bool { false }
     
     override func makeWindowControllers() {
         // Returns the Storyboard that contains your Document window.
@@ -28,15 +29,8 @@ class Document: NSDocument {
         if let windowController = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("Document Window Controller")) as? NSWindowController {
             
             addWindowController(windowController)
-            if let vc = windowController.contentViewController {
-                vc.representedObject = viewModel
-            }
+            windowController.contentViewController?.representedObject = viewModel
         }
-    }
-    
-    // This enables asynchronous reading.
-    override class func canConcurrentlyReadDocuments(ofType typeName: String) -> Bool {
-        true
     }
     
     override func read(from url: URL, ofType typeName: String) throws {
@@ -56,12 +50,8 @@ class Document: NSDocument {
         viewModel.audioBuffer = aBuffer
         viewModel.fileFormat = file.fileFormat
         viewModel.processingFormat = file.processingFormat
-        
-        let duration = Double(aBuffer.frameLength) / aBuffer.format.sampleRate
-        
-        viewModel.duration = duration
+        viewModel.duration = Double(aBuffer.frameLength) / aBuffer.format.sampleRate
         viewModel.samples = aBuffer.compressed()
-        
         viewModel.fileURL = url
         
         self.fileURL = nil

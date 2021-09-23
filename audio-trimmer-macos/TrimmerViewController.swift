@@ -9,6 +9,11 @@ import Cocoa
 import Combine
 import AVFoundation
 
+extension NSImage.Name {
+    static let play = NSImage.Name("play.fill")
+    static let pause = NSImage.Name("pause.fill")
+}
+
 class TrimmerViewController: NSViewController, TimelineViewDelegate {
     
     @IBOutlet weak var timelineView: TimelineView!
