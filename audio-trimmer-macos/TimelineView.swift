@@ -6,7 +6,6 @@
 //
 
 import Cocoa
-import Combine
 
 extension Comparable {
     func clamped(to limits: ClosedRange<Self>) -> Self {
@@ -18,7 +17,7 @@ protocol TimelineViewDelegate: class {
     func seek(to time: TimeInterval)
 }
 
-class TimelineView: NSView, ObservableObject {
+class TimelineView: NSView {
     
     weak var delegate: TimelineViewDelegate?
     

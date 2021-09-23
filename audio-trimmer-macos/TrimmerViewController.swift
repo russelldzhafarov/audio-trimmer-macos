@@ -14,9 +14,13 @@ extension NSImage.Name {
     static let pause = NSImage.Name("pause.fill")
 }
 
-class TrimmerViewController: NSViewController, TimelineViewDelegate {
+class TrimmerViewController: NSViewController {
     
-    @IBOutlet weak var timelineView: TimelineView!
+    @IBOutlet weak var timelineView: TimelineView! {
+        didSet {
+            timelineView.delegate = self
+        }
+    }
     @IBOutlet weak var playButton: NSButton!
     @IBOutlet weak var currentTimeLabel: NSTextField!
     @IBOutlet weak var startTimeLabel: NSTextField!
@@ -113,13 +117,6 @@ class TrimmerViewController: NSViewController, TimelineViewDelegate {
         view.window?.isMovableByWindowBackground = true
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        timelineView.delegate = self
-    }
-    
-    func seek(to time: TimeInterval) { viewModel?.seek(to: time) }
-    
     @IBAction func actionTrim(_ sender: Any) {
         guard let viewModel = viewModel,
               let fileURL = viewModel.fileURL else { return }
@@ -186,5 +183,11 @@ class TrimmerViewController: NSViewController, TimelineViewDelegate {
         guard let viewModel = viewModel else { return }
         viewModel.sliderLowerValue = viewModel.sliderMinimumValue
         viewModel.sliderUpperValue = viewModel.sliderMaximumValue
+    }
+}
+
+extension TrimmerViewController: TimelineViewDelegate {
+    func seek(to time: TimeInterval) {
+        viewModel?.seek(to: time)
     }
 }
