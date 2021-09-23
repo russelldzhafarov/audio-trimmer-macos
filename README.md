@@ -1,6 +1,8 @@
-# Audio Trimmer for macOS
+# Audio Trimmer
 
 Simple audio trimmer app for macOS.
+
+Will be available on AppStore soon.
 
 ![Screenshot](./AudioTrimmer.png)
 
