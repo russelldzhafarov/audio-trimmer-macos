@@ -12,7 +12,7 @@ Download the `AudioTrimmer.zip` file for the latest [release](https://github.com
 
 ## Author
 
-Russell Dzhafarov
+Ruslan Dzhafarov
 
 ## License
 
